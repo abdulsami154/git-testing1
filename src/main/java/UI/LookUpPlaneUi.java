@@ -1,6 +1,5 @@
 package UI;
 
-import UI.AdminUi;
 import service.ViewPlaneService;
 
 import javax.swing.*;
@@ -90,8 +89,13 @@ public class LookUpPlaneUi {
         });
         btnDelete.addActionListener(bk->{
             frame.dispose();
-//            new DeletePlane();
+            new DeletePlaneUi();
         });
+        btnEdit.addActionListener(btn->{
+            frame.dispose();
+            new SearchEditPlaneUi();
+        });
+
 
 
         c.add(panel1);

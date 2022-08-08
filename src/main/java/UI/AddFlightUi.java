@@ -67,22 +67,21 @@ public class AddFlightUi{
             book.setBounds(400, 350, 150, 35);
 
             book.addActionListener(btn->{
-                System.out.println(planeName.getText());
-                System.out.println(dateTf.getText());
-                System.out.println(sourceTf.getText());
-                System.out.println(destinationTf.getText());
-                System.out.println(fareTf.getText());
-                System.out.println(flightIdTf.getText());
-//                Flight flight =new Flight(flightIdTf.getText(), LocalDate.parse(dateTf.getText()),sourceTf.getText(),
-//                        destinationTf.getText(),Double.valueOf(fareTf.getText()),new ArrayList<>());
-//                boolean flightPlane=  AddFlightService.AddingFlights(planeName.getText(),dateTf.getText(),
-//                        sourceTf.getText(),destinationTf.getText(),fareTf.getText(),flightIdTf.getText());
-//                if (flightPlane){
-//                    JOptionPane.showMessageDialog(frame,"Booking Confirmed");
-//                }else {
-//                    JOptionPane.showMessageDialog(frame,"Booking Failed");
-//                }
-//     FlightService.AddingFlights(planeName.getText(),dateTf.getText(),sourceTf.getText(),destinationTf.getText(),fareTf.getText(),
+               String _planeName= planeName.getText();
+                LocalDate _date= LocalDate.parse(dateTf.getText());
+                String src = sourceTf.getText();
+                String des = destinationTf.getText();
+                Double _fare = Double.valueOf(fareTf.getText());
+                String _flightNumber = flightIdTf.getText();
+//                Flight flight = new Flight(flightNumber,src,des,_fare,_date,_flightId,new ArrayList<>());
+                boolean flightPlane=  AddFlightService.AddingFlights(_planeName,src,des,_fare, _date,_flightNumber);
+                if (flightPlane){
+                    JOptionPane.showMessageDialog(frame,"Booking Confirmed");
+                }else {
+                    JOptionPane.showMessageDialog(frame,"Booking Failed");
+                }
+//     FlightService.AddingFlights(planeName.getText(),dateTf.getText(),
+//     sourceTf.getText(),destinationTf.getText(),fareTf.getText(),
 //             flightIdTf.getText());
 
             });

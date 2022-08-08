@@ -6,7 +6,7 @@ import repository.PlaneRepository;
 import java.util.List;
 
 public class AddPlaneService {
-    public static Boolean addAeroplane(String name, String capacity, String airline) {
+    public static Boolean addAeroplane(String name, Integer capacity, String airline) {
         PlaneRepository planeRepository=new PlaneRepository();
         List<Aeroplane> aeroplanes=planeRepository.getAllAeroplane();
         Aeroplane aero=aeroplanes.stream().filter

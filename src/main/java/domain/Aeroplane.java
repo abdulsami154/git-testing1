@@ -5,35 +5,50 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class Aeroplane {
+    private Long id;
     private String name;
-    private String capacity;
+    private Integer capacity;
     private String airline;
     private List<Flight> flights;
 
     public Aeroplane() {
-
     }
 
-    public Aeroplane(String name, String capacity, String airline) {
+    public Aeroplane(Long id, String name, Integer capacity, String airline, List<Flight> flights) {
+        this.id = id;
         this.name = name;
         this.capacity = capacity;
         this.airline = airline;
+        this.flights = flights;
+    }
+
+    public Aeroplane(String name, Integer capacity, String airline) {
+        this.name = name;
+        this.capacity = capacity;
+        this.airline = airline;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getCapacity() {
+    public Integer getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(String capacity) {
+    public void setCapacity(Integer capacity) {
         this.capacity = capacity;
     }
 
@@ -53,25 +68,21 @@ public class Aeroplane {
         this.flights = flights;
     }
 
-    public Aeroplane(String name, String capacity, String airline, List<Flight> flights) {
-        this.name = name;
-        this.capacity = capacity;
-        this.airline = airline;
-        this.flights = flights;
-    }
-
     @Override
     public String toString() {
         return "Aeroplane{" +
-                "name='" + name + '\'' +
-                ", capacity=" + capacity +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", capacity='" + capacity + '\'' +
                 ", airline='" + airline + '\'' +
                 ", flights=" + flights +
                 '}';
     }
-    public void populate(ResultSet rs) throws SQLException {
+
+        public void populate(ResultSet rs) throws SQLException {
+        this.setId(Long.parseLong(rs.getString("id")));
         this.setAirline(rs.getString("name"));
-        this.setCapacity(rs.getString("capacity"));
+        this.setCapacity(rs.getInt("capacity"));
         this.setName(rs.getString("airline"));
 
 

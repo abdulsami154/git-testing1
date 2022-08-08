@@ -1,6 +1,7 @@
 package UI;
 
 import service.FlightService;
+import service.ViewFlightService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,7 +38,7 @@ public class LookUpFlightUi {
 
         btnUpdate.addActionListener(bk->{
             frame.dispose();
-//            new SearchEditFlight();
+            new SearchEditFlightUi();
         });
 
         JButton btnDelete = new JButton("DELETE");
@@ -66,13 +67,13 @@ public class LookUpFlightUi {
 
 
         btnSearch.addActionListener(btn->{
-//            String column[]={"Flight ID","Date","Source","Destination","Fare","Passenger List"};
-//            String data[][]= FlightService.getAllAddingFlights(column.length,searchTf.getText());
-//
-//            JTable jt=new JTable(data,column);
-//            JScrollPane sp =new JScrollPane(jt);
-//            sp.setBounds(0,0,800,700);
-//            panel2.add(sp);
+            String column[]={"Flight ID","Date","Source","Destination","Fare","Passenger List"};
+            String data[][]= ViewFlightService.getAllAddingFlightsForJTable(column.length,searchTf.getText());
+
+            JTable jt=new JTable(data,column);
+            JScrollPane sp =new JScrollPane(jt);
+            sp.setBounds(0,0,800,700);
+            panel2.add(sp);
         });
 
         back.addActionListener(bk -> {
@@ -85,7 +86,7 @@ public class LookUpFlightUi {
         });
         btnDelete.addActionListener(bk->{
             frame.dispose();
-//            new DeleteFlights();
+            new DeleteFlightUi();
         });
 
 

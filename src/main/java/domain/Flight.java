@@ -31,6 +31,15 @@ public class Flight {
         this.passengerList = passengerList;
     }
 
+    public Flight(String flightNumber, LocalDate date, String source, String destination, Double fare, Long planeId) {
+            this.flightNumber = flightNumber;
+            this.source = source;
+            this.destination = destination;
+            this.fare = fare;
+            this.date = date;
+            this.aeroplaneId = planeId;
+
+    }
 
 
     public Long getId() {
